@@ -1,24 +1,378 @@
-function parsePaste(paste) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVE Combat Site Scanner</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d0d0d;
+      color: #c8c8c8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    header { margin-bottom: 20px; }
+
+    h1 {
+      font-size: 1.6rem;
+      color: #9ecfff;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      color: #9ecfff;
+      margin-bottom: 10px;
+    }
+
+    p { color: #aaa; margin-bottom: 10px; }
+
+    kbd {
+      background: #222;
+      border: 1px solid #555;
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 0.85em;
+      color: #ddd;
+    }
+
+    /* ── Input area ── */
+    .input-section { display: flex; flex-direction: column; gap: 8px; max-width: 900px; }
+
+    textarea {
+      width: 100%;
+      min-height: 130px;
+      background: #111;
+      border: 1px solid #2a4a6a;
+      border-radius: 4px;
+      color: #c8c8c8;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 12px;
+      padding: 8px 10px;
+      resize: vertical;
+    }
+
+    textarea:focus { outline: none; border-color: #4a8abf; }
+
+    .btn-row { display: flex; gap: 8px; }
+
+    button {
+      background: #1a3a5a;
+      border: 1px solid #2a5a8a;
+      border-radius: 4px;
+      color: #9ecfff;
+      cursor: pointer;
+      font-size: 13px;
+      padding: 6px 16px;
+    }
+
+    button:hover { background: #1e4a72; border-color: #4a8abf; }
+    button:active { background: #153050; }
+
+    /* ── Results ── */
+    section { margin-top: 24px; max-width: 1100px; }
+
+    .table-wrapper { overflow-x: auto; }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 13px;
+    }
+
+    th {
+      background: #152535;
+      border: 1px solid #1e3a52;
+      color: #9ecfff;
+      padding: 6px 10px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    td {
+      border: 1px solid #1e3a52;
+      padding: 5px 10px;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: #0f1e2d; }
+    tr:nth-child(odd)  td { background: #0b151f; }
+    tr:hover td { background: #152535; }
+
+    td em { color: #666; font-style: italic; }
+
+    .badge {
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 1px 6px;
+    }
+
+    .badge.ded { background: #5a1a1a; border: 1px solid #a03030; color: #ff9090; }
+
+    /* ── Unknown sites ── */
+    #unknown-list {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+
+    #unknown-list li {
+      background: #1a1a0a;
+      border: 1px solid #3a3a1a;
+      border-radius: 3px;
+      color: #e8d080;
+      font-family: 'Courier New', Courier, monospace;
+      margin-bottom: 4px;
+      padding: 3px 8px;
+    }
+
+    pre#json-template {
+      background: #0a120a;
+      border: 1px solid #1a3a1a;
+      border-radius: 4px;
+      color: #80c880;
+      font-size: 12px;
+      margin-top: 10px;
+      max-height: 300px;
+      overflow: auto;
+      padding: 10px;
+      white-space: pre;
+    }
+
+    .no-results { color: #666; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>EVE Combat Site Scanner</h1>
+  <p>
+    In EVE's Probe Scanner window press <kbd>Ctrl+A</kbd> then <kbd>Ctrl+C</kbd>,
+    then press <kbd>Ctrl+V</kbd> in the box below — results appear automatically.
+    Alternatively paste manually and click <strong>Parse</strong>.
+  </p>
+</header>
+
+<main>
+  <div class="input-section">
+    <textarea id="paste-input" placeholder="Paste probe scanner results here…" spellcheck="false"></textarea>
+    <div class="btn-row">
+      <button id="parse-btn">Parse</button>
+      <button id="clear-btn">Clear</button>
+    </div>
+  </div>
+
+  <section id="results-section" hidden>
+    <h2>Combat Sites (<span id="result-count">0</span>)</h2>
+    <div class="table-wrapper">
+      <table id="results-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Scan Type</th>
+            <th>Site Name</th>
+            <th>DED</th>
+            <th>Not DED</th>
+            <th>Can Escalate</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody id="results-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unknown-section" hidden>
+    <h2>Unknown Site Names (<span id="unknown-count">0</span>)</h2>
+    <p>
+      These site names were not found in <code>sites.json</code>.
+      You can help by adding them — see the README for instructions.
+    </p>
+    <ul id="unknown-list"></ul>
+    <button id="copy-template-btn">Copy JSON template</button>
+    <pre id="json-template"></pre>
+  </section>
+</main>
+
+<script>
+  'use strict';
+
+  let sitesDb = [];
+
+  async function loadSites() {
+    try {
+      const resp = await fetch('sites.json');
+      const data = await resp.json();
+      sitesDb = Array.isArray(data.sites) ? data.sites : [];
+    } catch (e) {
+      console.warn('Could not load sites.json:', e);
+    }
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function parsePaste(paste) {
     const rows = paste.trim().split('\n');
     const results = [];
     for (const row of rows) {
-        const cols = row.split('|');
-        if (cols.length < 4) continue; // Make sure there are enough columns
-        const scanType = cols[1].trim(); // Cosmic Signature/Anomaly
-        const siteType = cols[2].trim(); // Combat Site etc
-        const siteName = cols[3].trim();
-        if (siteType === 'Combat Site') { // Filtering for Combat Site
-            results.push({ scanType, siteType, siteName });
-        }
+      // EVE probe scanner copies tab-separated values
+      const cols = row.split('\t');
+      if (cols.length < 4) continue;
+      const id       = cols[0].trim();
+      const scanType = cols[1].trim(); // Cosmic Signature / Cosmic Anomaly
+      const siteType = cols[2].trim(); // Combat Site, Ore Site, etc.
+      const siteName = cols[3].trim();
+      if (siteType === 'Combat Site') {
+        results.push({ id, scanType, siteName });
+      }
     }
     return results;
-}
+  }
 
-function renderResults(results) {
-    const output = results.map(result => `Scan Type: ${result.scanType}, Site Type: ${result.siteType}, Site Name: ${result.siteName}`).join('\n');
-    return output;
-}
+  function lookupSite(name) {
+    const lower = name.toLowerCase();
+    return sitesDb.find(s => s.name.toLowerCase() === lower) || null;
+  }
 
-// Update placeholder: 
-// Assume there's a function responsible for setting placeholders, replacing contents with appropriate values
-updatePlaceholderText('Scan Type | Site Type | Site Name');
+  function renderResults(results) {
+    const tbody = document.getElementById('results-body');
+    const unknownNames = new Set();
+    tbody.innerHTML = '';
+
+    for (const r of results) {
+      const site = lookupSite(r.siteName);
+      if (!site) unknownNames.add(r.siteName);
+
+      const tr = document.createElement('tr');
+      const dedCell = site && site.isDed
+        ? `<span class="badge ded">${escHtml(site.ded)}</span>`
+        : '';
+      const notDedCell = site && !site.isDed ? 'Yes' : '';
+      const escalCell = site && site.canEscalateToDed
+        ? `&#x2192; ${escHtml(site.canEscalateToDed)}`
+        : '';
+      const noteCell = site
+        ? escHtml(site.note)
+        : '<em>Not in database</em>';
+
+      tr.innerHTML =
+        `<td>${escHtml(r.id)}</td>` +
+        `<td>${escHtml(r.scanType)}</td>` +
+        `<td>${escHtml(r.siteName)}</td>` +
+        `<td>${dedCell}</td>` +
+        `<td>${notDedCell}</td>` +
+        `<td>${escalCell}</td>` +
+        `<td>${noteCell}</td>`;
+      tbody.appendChild(tr);
+    }
+
+    return unknownNames;
+  }
+
+  function renderUnknown(unknownNames) {
+    const ul = document.getElementById('unknown-list');
+    ul.innerHTML = '';
+    for (const name of unknownNames) {
+      const li = document.createElement('li');
+      li.textContent = name;
+      ul.appendChild(li);
+    }
+
+    const items = [...unknownNames].map(name =>
+      JSON.stringify({ name, isDed: false, ded: null, canEscalateToDed: null, note: '' }, null, 2)
+    );
+    // Wrap in an array so the template is valid JSON and can be validated before pasting
+    const template = '[\n' + items.join(',\n') + '\n]';
+    document.getElementById('json-template').textContent = template;
+  }
+
+  function run() {
+    const paste = document.getElementById('paste-input').value;
+    const results = parsePaste(paste);
+
+    const resultsSection = document.getElementById('results-section');
+    const unknownSection = document.getElementById('unknown-section');
+
+    document.getElementById('result-count').textContent = results.length;
+
+    if (results.length > 0) {
+      resultsSection.hidden = false;
+      const unknownNames = renderResults(results);
+      document.getElementById('unknown-count').textContent = unknownNames.size;
+      if (unknownNames.size > 0) {
+        unknownSection.hidden = false;
+        renderUnknown(unknownNames);
+      } else {
+        unknownSection.hidden = true;
+      }
+    } else {
+      resultsSection.hidden = true;
+      unknownSection.hidden = true;
+    }
+  }
+
+  document.getElementById('parse-btn').addEventListener('click', run);
+
+  document.getElementById('clear-btn').addEventListener('click', () => {
+    document.getElementById('paste-input').value = '';
+    document.getElementById('results-section').hidden = true;
+    document.getElementById('unknown-section').hidden = true;
+  });
+
+  // Auto-parse when user pastes into the textarea
+  document.getElementById('paste-input').addEventListener('paste', () => {
+    setTimeout(run, 0);
+  });
+
+  document.getElementById('copy-template-btn').addEventListener('click', () => {
+    const btn = document.getElementById('copy-template-btn');
+    const text = document.getElementById('json-template').textContent;
+
+    function showFeedback(msg) {
+      const prev = btn.textContent;
+      btn.textContent = msg;
+      btn.disabled = true;
+      setTimeout(() => { btn.textContent = prev; btn.disabled = false; }, 2000);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+        .then(() => showFeedback('✓ Copied!'))
+        .catch(() => {
+          // Fallback: select the text so the user can copy manually
+          const pre = document.getElementById('json-template');
+          const range = document.createRange();
+          range.selectNodeContents(pre);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          showFeedback('Select & copy manually');
+        });
+    } else {
+      const pre = document.getElementById('json-template');
+      const range = document.createRange();
+      range.selectNodeContents(pre);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      showFeedback('Select & copy manually');
+    }
+  });
+
+  loadSites();
+</script>
+
+</body>
+</html>
