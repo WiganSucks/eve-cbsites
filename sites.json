@@ -1,0 +1,573 @@
+{
+  "version": "2025-03-25",
+  "source": "https://wiki.eveuniversity.org/Combat_site",
+  "sites": [
+    {
+      "name": "Abandoned Drone Ruins",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Rogue Drone unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Angel Cartel Occupied Mining Complex",
+      "isDed": true,
+      "ded": "4/10",
+      "canEscalateToDed": null,
+      "note": "Angel Cartel DED 4/10 complex"
+    },
+    {
+      "name": "Angel Cartel Naval Shipyard",
+      "isDed": true,
+      "ded": "6/10",
+      "canEscalateToDed": null,
+      "note": "Angel Cartel DED 6/10 complex"
+    },
+    {
+      "name": "Angel Creo-Corp Mining",
+      "isDed": true,
+      "ded": "2/10",
+      "canEscalateToDed": null,
+      "note": "Angel Cartel DED 2/10 complex"
+    },
+    {
+      "name": "Angel Hideaway",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "1/10",
+      "note": "Angel Cartel unrated complex; can escalate to DED 1/10"
+    },
+    {
+      "name": "Angel Lookout",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "2/10",
+      "note": "Angel Cartel unrated complex; can escalate to DED 2/10"
+    },
+    {
+      "name": "Angel Mineral Acquisition Outpost",
+      "isDed": true,
+      "ded": "3/10",
+      "canEscalateToDed": null,
+      "note": "Angel Cartel DED 3/10 complex"
+    },
+    {
+      "name": "Angel Port",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Angel Cartel unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Angel Refuge",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Angel Cartel unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Angel Stronghold",
+      "isDed": true,
+      "ded": "8/10",
+      "canEscalateToDed": null,
+      "note": "Angel Cartel DED 8/10 complex"
+    },
+    {
+      "name": "Angel Vigil",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "4/10",
+      "note": "Angel Cartel unrated complex; can escalate to DED 4/10"
+    },
+    {
+      "name": "Angel Watch",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "3/10",
+      "note": "Angel Cartel unrated complex; can escalate to DED 3/10"
+    },
+    {
+      "name": "Angel Yard",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Angel Cartel unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Besieged Covert Research Facility",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Special unrated Rogue Drone / Blood Raiders hybrid site; contains valuable loot"
+    },
+    {
+      "name": "Blood Hideaway",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "1/10",
+      "note": "Blood Raiders unrated complex; can escalate to DED 1/10"
+    },
+    {
+      "name": "Blood Lookout",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "2/10",
+      "note": "Blood Raiders unrated complex; can escalate to DED 2/10"
+    },
+    {
+      "name": "Blood Port",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Blood Raiders unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Blood Refuge",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Blood Raiders unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Blood Vigil",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "4/10",
+      "note": "Blood Raiders unrated complex; can escalate to DED 4/10"
+    },
+    {
+      "name": "Blood Watch",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "3/10",
+      "note": "Blood Raiders unrated complex; can escalate to DED 3/10"
+    },
+    {
+      "name": "Blood Yard",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Blood Raiders unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Blood Raider Battletower",
+      "isDed": true,
+      "ded": "8/10",
+      "canEscalateToDed": null,
+      "note": "Blood Raiders DED 8/10 complex"
+    },
+    {
+      "name": "Blood Raiders Corrupted Outpost",
+      "isDed": true,
+      "ded": "6/10",
+      "canEscalateToDed": null,
+      "note": "Blood Raiders DED 6/10 complex"
+    },
+    {
+      "name": "Blood Raiders Forsaken Hub",
+      "isDed": true,
+      "ded": "3/10",
+      "canEscalateToDed": null,
+      "note": "Blood Raiders DED 3/10 complex"
+    },
+    {
+      "name": "Blood Raiders Forsaken Sanctum",
+      "isDed": true,
+      "ded": "4/10",
+      "canEscalateToDed": null,
+      "note": "Blood Raiders DED 4/10 complex"
+    },
+    {
+      "name": "Crumbling Angel Outpost",
+      "isDed": true,
+      "ded": "1/10",
+      "canEscalateToDed": null,
+      "note": "Angel Cartel DED 1/10 complex"
+    },
+    {
+      "name": "Crumbling Drone Hive",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Rogue Drone unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Crumbling Guristas Outpost",
+      "isDed": true,
+      "ded": "1/10",
+      "canEscalateToDed": null,
+      "note": "Guristas DED 1/10 complex"
+    },
+    {
+      "name": "Crumbling Sansha Outpost",
+      "isDed": true,
+      "ded": "1/10",
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation DED 1/10 complex"
+    },
+    {
+      "name": "Crumbling Serpentis Outpost",
+      "isDed": true,
+      "ded": "1/10",
+      "canEscalateToDed": null,
+      "note": "Serpentis DED 1/10 complex"
+    },
+    {
+      "name": "Desolate Site",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Rogue Drone unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Dirty Site",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Rogue Drone unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Drone Cluster",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Rogue Drone unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Drone Infestation",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Rogue Drone unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Drone Patrol",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Rogue Drone unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Drone Surveillance",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Rogue Drone unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Guristas Hideaway",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "1/10",
+      "note": "Guristas unrated complex; can escalate to DED 1/10"
+    },
+    {
+      "name": "Guristas Lookout",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "2/10",
+      "note": "Guristas unrated complex; can escalate to DED 2/10"
+    },
+    {
+      "name": "Guristas Military Operations Complex",
+      "isDed": true,
+      "ded": "6/10",
+      "canEscalateToDed": null,
+      "note": "Guristas DED 6/10 complex"
+    },
+    {
+      "name": "Guristas Port",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Guristas unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Guristas Refuge",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Guristas unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Guristas Scout Outpost",
+      "isDed": true,
+      "ded": "2/10",
+      "canEscalateToDed": null,
+      "note": "Guristas DED 2/10 complex"
+    },
+    {
+      "name": "Guristas Stronghold",
+      "isDed": true,
+      "ded": "8/10",
+      "canEscalateToDed": null,
+      "note": "Guristas DED 8/10 complex"
+    },
+    {
+      "name": "Guristas Troop Reinvigoration Camp",
+      "isDed": true,
+      "ded": "3/10",
+      "canEscalateToDed": null,
+      "note": "Guristas DED 3/10 complex"
+    },
+    {
+      "name": "Guristas Vigil",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "4/10",
+      "note": "Guristas unrated complex; can escalate to DED 4/10"
+    },
+    {
+      "name": "Guristas Watch",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "3/10",
+      "note": "Guristas unrated complex; can escalate to DED 3/10"
+    },
+    {
+      "name": "Guristas Yard",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Guristas unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Guristas Hallucinogen Supply Waypoint",
+      "isDed": true,
+      "ded": "4/10",
+      "canEscalateToDed": null,
+      "note": "Guristas DED 4/10 complex"
+    },
+    {
+      "name": "Hidden Blood Raider Monastery",
+      "isDed": true,
+      "ded": "1/10",
+      "canEscalateToDed": null,
+      "note": "Blood Raiders DED 1/10 complex"
+    },
+    {
+      "name": "Lair of the Blood Raiders",
+      "isDed": true,
+      "ded": "2/10",
+      "canEscalateToDed": null,
+      "note": "Blood Raiders DED 2/10 complex"
+    },
+    {
+      "name": "Provisional Angel Outpost",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Angel Cartel unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Provisional Blood Outpost",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Blood Raiders unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Provisional Guristas Outpost",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Guristas unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Provisional Sansha Outpost",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Provisional Serpentis Outpost",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Serpentis unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Rampant Drone Fabricator",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Rogue Drone unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Sansha Hideaway",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "1/10",
+      "note": "Sansha's Nation unrated complex; can escalate to DED 1/10"
+    },
+    {
+      "name": "Sansha Lookout",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "2/10",
+      "note": "Sansha's Nation unrated complex; can escalate to DED 2/10"
+    },
+    {
+      "name": "Sansha Nation Captain Outpost",
+      "isDed": true,
+      "ded": "2/10",
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation DED 2/10 complex"
+    },
+    {
+      "name": "Sansha Nation Mining Colony",
+      "isDed": true,
+      "ded": "3/10",
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation DED 3/10 complex"
+    },
+    {
+      "name": "Sansha Nation Naval Shipyard",
+      "isDed": true,
+      "ded": "6/10",
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation DED 6/10 complex"
+    },
+    {
+      "name": "Sansha Nation Neural Paralytic Facility",
+      "isDed": true,
+      "ded": "4/10",
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation DED 4/10 complex"
+    },
+    {
+      "name": "Sansha Nation Stronghold",
+      "isDed": true,
+      "ded": "8/10",
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation DED 8/10 complex"
+    },
+    {
+      "name": "Sansha Occupied Mining Colony",
+      "isDed": true,
+      "ded": "5/10",
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation DED 5/10 complex"
+    },
+    {
+      "name": "Sansha Port",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Sansha Refuge",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Sansha Vigil",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "4/10",
+      "note": "Sansha's Nation unrated complex; can escalate to DED 4/10"
+    },
+    {
+      "name": "Sansha Watch",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "3/10",
+      "note": "Sansha's Nation unrated complex; can escalate to DED 3/10"
+    },
+    {
+      "name": "Sansha Yard",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Sansha's Nation unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Serpentis Assembly Plant",
+      "isDed": true,
+      "ded": "6/10",
+      "canEscalateToDed": null,
+      "note": "Serpentis DED 6/10 complex"
+    },
+    {
+      "name": "Serpentis Consulate",
+      "isDed": true,
+      "ded": "4/10",
+      "canEscalateToDed": null,
+      "note": "Serpentis DED 4/10 complex"
+    },
+    {
+      "name": "Serpentis Corporation Hydroponics Site",
+      "isDed": true,
+      "ded": "2/10",
+      "canEscalateToDed": null,
+      "note": "Serpentis DED 2/10 complex"
+    },
+    {
+      "name": "Serpentis Hideaway",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "1/10",
+      "note": "Serpentis unrated complex; can escalate to DED 1/10"
+    },
+    {
+      "name": "Serpentis Lookout",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "2/10",
+      "note": "Serpentis unrated complex; can escalate to DED 2/10"
+    },
+    {
+      "name": "Serpentis Phi-Outpost",
+      "isDed": true,
+      "ded": "3/10",
+      "canEscalateToDed": null,
+      "note": "Serpentis DED 3/10 complex"
+    },
+    {
+      "name": "Serpentis Port",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Serpentis unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Serpentis Refuge",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Serpentis unrated complex (Cosmic Signature)"
+    },
+    {
+      "name": "Serpentis Stronghold",
+      "isDed": true,
+      "ded": "8/10",
+      "canEscalateToDed": null,
+      "note": "Serpentis DED 8/10 complex"
+    },
+    {
+      "name": "Serpentis Vigil",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "4/10",
+      "note": "Serpentis unrated complex; can escalate to DED 4/10"
+    },
+    {
+      "name": "Serpentis Watch",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": "3/10",
+      "note": "Serpentis unrated complex; can escalate to DED 3/10"
+    },
+    {
+      "name": "Serpentis Yard",
+      "isDed": false,
+      "ded": null,
+      "canEscalateToDed": null,
+      "note": "Serpentis unrated complex (Cosmic Signature)"
+    }
+  ]
+}
