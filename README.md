@@ -62,7 +62,7 @@ To add an unknown site:
 3. Choose **`main`** branch and **`/ (root)`** directory.
 4. Click **Save**.
 
-The app will be live at `https://<your-username>.github.io/eve-cbsites/` within a minute.
+The app will be live at `https://WiganSucks.github.io/eve-cbsites/` within a minute.
 
 ## Data source
 
